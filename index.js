@@ -13,7 +13,7 @@ function shuffle(a) {
     return a;
 }
 
-let _latexFormulas = [
+let latexFormulas = [
 	'\\int_{-\\infty}^\\infty\\f\\hat\\xi\\,e^{2 \\pi i \\xi x}\\,d\\xi',
 	'\\int_{-\\infty}^\\infty\\f\\xi\\,\pi^{3 \\pi i \\xi x}\\,d\\xi',
 	'\\int_{a}^b\\f\\xi\\,e^{2 \\pi i \\xi x}\\,d\\xi',
@@ -21,10 +21,9 @@ let _latexFormulas = [
 	'E=mc^2',
 	'\\frac{n!}{k!(n-k)!} = \\binom{n}{k}',
 ];
-let latexFormulas = [1,2,3,4,5,6].map(x => x.toString());
+let _latexFormulas = [1,2,3,4,5,6].map(x => x.toString());
 latexFormulas = latexFormulas.concat(latexFormulas);
-// shuffle(latexFormulas);
-console.log(latexFormulas);
+shuffle(latexFormulas);
 
 let cardSelection = [];
 let cardsLeft = 12;
@@ -47,7 +46,6 @@ const onCardSelected = (event) => {
 	cardSelection.push(selectedCard);
 	selectedCard.classList.add('flip');
 
-	// selectedCard.classList.add('flip');
 	console.log(cardSelection.map(x => x.dataset.latex))
 
 	if (cardSelection.length >= 2) {
@@ -65,12 +63,6 @@ const onCardSelected = (event) => {
 	} else if (cardSelection[0] === cardSelection[1]) {
 		return false;
 	}
-
-	// cardSelection.push(selectedCard);
-	// selectedCard.classList.add('flip');
-
-	// console.log(cardSelection, cardSelection.length)
-	// selectedCard.classList.toggle('flip');
 };
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -85,11 +77,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 		katex.render(formula, cardBackface, {
 			displayMode: false,
-			leqno: false,
-			fleqn: false,
-			throwOnError: true,
-			errorColor: "#cc0000",
-			strict: "warn",
+			throwOnError: false,
 			output: "htmlAndMathml",
 			trust: false,
 			macros: { "\\f": "#1f(#2)" }
