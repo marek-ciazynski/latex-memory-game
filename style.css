@@ -1,0 +1,78 @@
+.flex-center {
+	justify-content: center;
+	align-items: center
+}
+
+html {
+	font-family: sans-serif;
+	text-align: center;
+	background: #fafafa;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0;
+}
+
+h1 {
+	margin: 2rem 0;
+}
+
+hr {
+	border: 1px solid #e5e5e5;
+}
+
+#game,
+#game * {
+	display: flex;
+}
+
+
+#game {
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+}
+
+.row {
+	flex-direction: column;
+}
+
+.card {
+	margin: 10px 0;
+	width: 343px;
+	height: 171px;
+
+	color: #fff;
+	text-shadow: 0 0 4px #000, 0 0 10px #000;
+	font-weight: bold;
+	font-size: 26px;
+	/* box-shadow: 0 0 6px #0002; */
+	
+	perspective: 700px;
+}
+
+
+.card .card-content {
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	
+	background: url('./assets/card-reverse-black.png') no-repeat;
+	background-size: contain;
+	background-position: center;
+
+	transition: transform 0.7s, color 0.5s, text-shadow 0.5s;
+	transform-style: preserve-3d;
+}
+
+.card:hover .card-content,
+.card.reveal .card-content {
+	transform: rotateX(180deg);
+	transition: transform 0.5s, color 0.25s, text-shadow 0.5s;
+	color: #0000;
+	text-shadow: none;
+}
