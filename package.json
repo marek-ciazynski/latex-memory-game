@@ -18,5 +18,8 @@
   "description": "",
   "devDependencies": {
     "parcel": "^1.12.4"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
   }
 }
